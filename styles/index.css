@@ -1,0 +1,204 @@
+@import 'reset.css';
+
+:root {
+    --default-foregrond: #fff;
+
+    --highlight: #19191F;
+
+    --btn-watch-background:#0072D2;
+    --btn-trailer-border: #fff;
+
+}
+
+* {
+    color: var(--default-foregrond);
+}
+
+body {
+    background: linear-gradient(#000b, #000b), url('https://www.figma.com/file/Yb9IBH56g7T1hdIyZ3BMNO/image/b84956c7d5f158cf8e40fff06997651a3de8f977?fuid=1138458585536270203');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+main {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+hgroup {
+    margin-top: 4rem;
+    display: flex;
+    flex-direction: column;
+    row-gap: 2rem;
+}
+
+hgroup > *{
+    text-align: center;
+    font-weight: bold;
+}
+
+h1 {
+    font-size: 5.5rem;
+}
+
+.miniature {
+    width: 150px;
+    height: 250px;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.miniature img{
+    width: 100%;
+    object-fit: cover;
+    background-size: cover;
+}
+
+.highlight {
+    padding: 1.5rem;
+    background: var(--highlight);
+}
+
+.specs {
+    display: flex;
+    justify-content: center;
+    column-gap: 3rem;
+    margin: auto 0 1.5rem 0;
+}
+
+.date {
+    font-weight: bold;
+}
+
+.movie {
+    max-width: 800px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.watch {
+    display: flex;
+    justify-content: space-between;
+    column-gap: 1rem;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+}
+
+.watch input:nth-of-type(1) {
+    background: var(--btn-watch-background);
+}
+
+.watch input:nth-of-type(2) {
+    border: 1px solid var(--btn-trailer-border);
+}
+
+.synopsis {
+    font-size: 14px;
+    line-height: 24px;
+}
+
+@media (max-width: 500px) {
+    .watch input{
+        flex-grow: 1;
+        max-width: 175px;
+    }
+}
+
+@media (min-width: 500px) and (max-width: 800px) {
+    .specs {
+        justify-content: flex-end;
+        column-gap: 1.5rem;
+        padding: 0 0.5rem;
+    }
+}
+
+@media (min-width: 800px) {
+
+    body {
+        padding: 0 1rem;
+    }
+
+    .movie {
+        display: grid;
+        column-gap: 4rem;
+        grid-template-columns: repeat(2, auto);
+        grid-template-rows: repeat(3, auto);
+        margin-bottom: 8rem;
+    }
+
+    .miniature {
+        display: flex;
+        grid-area: 1/1/4/2;
+    }
+
+    .specs {
+        grid-area: 2/2/3/3;
+        width: max-content;
+        column-gap: 4rem;
+        padding: 0;
+    }
+
+    .time img {
+        width: 100px;
+    }
+
+    .rate img {
+        width: 200px;
+    }
+
+    .specs p {
+        font-size: 20px;
+        display: flex;
+        align-items: center;
+    }
+
+    .watch {
+        grid-area: 3/2/4/3;
+        width: max-content;
+        height: max-content;
+        align-items: end;
+        border-radius: 0;
+    }
+
+    .watch input {
+        width: max-content;
+        height: max-content;
+        padding: 0.9rem 2rem;
+    }
+
+    .synopsis {
+        grid-area: 1/2/2/3;
+        font-size: 1rem;
+        line-height: 2rem;
+    }
+
+    .highlight {
+        padding: 0;
+        background: transparent;
+    }
+}
+
+/*Mobile em modo desktop (Paisagem) */
+
+@media only screen and (hover: none) and (pointer: coarse) and (orientation: landscape){
+
+    html {
+        height: max-content;
+    }
+
+    main {
+        row-gap: 5rem;
+    }
+
+    hgroup {
+        margin-top: 2rem;
+    }
+
+    .movie {
+        margin-bottom: 2rem;
+    }
+}
